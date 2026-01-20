@@ -9,13 +9,13 @@ export const env = createEnv({
     AUTH_URL: z.url(),
   },
 
-  // client: {},
+  //   Client Example
   client: {
     NEXT_PUBLIC_TEST: z.string(),
   },
 
   runtimeEnv: {
-      BACKEND_URL: process.env.BACKEND_URL,
+    BACKEND_URL: process.env.BACKEND_URL,
     FRONTEND_URL: process.env.FRONTEND_URL,
     API_URL: process.env.API_URL,
     AUTH_URL: process.env.AUTH_URL,
