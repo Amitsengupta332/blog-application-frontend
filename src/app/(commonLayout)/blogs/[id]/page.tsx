@@ -4,9 +4,17 @@
 import { blogService } from "@/service/blog.service";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { BlogPost } from "@/types";
+
+//* [ { id: asdfasdfasd }, {id : asdfasdadsfa}, {id: asdfasdfasfasd} ]
+export async function generateStaticParams() {
+  const { data } = await blogService.getBlogPosts();
+
+  return data?.data?.map((blog: BlogPost) => ({ id: blog.id })).splice(0, 3);
+}
+
 
 //* now server component e fetch korar upay
-
 export default async function BlogPage({
   params,
 }: {
