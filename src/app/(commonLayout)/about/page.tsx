@@ -1,6 +1,16 @@
 "use client";
 
+//! next js use client temon pocondo kore na.
+
+import { useEffect, useState } from "react";
+
 export default function AboutPage() {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    (async () => {})();
+  }, []);
+
   //* For simulating load time
   // await new Promise((resolve) => setTimeout(resolve, 4000));
 
