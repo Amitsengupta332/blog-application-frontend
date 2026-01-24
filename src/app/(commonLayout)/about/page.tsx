@@ -1,14 +1,21 @@
 "use client";
 
+import { getBlogs } from "@/actions/blog.action";
 //! next js use client temon pocondo kore na.
 
 import { useEffect, useState } from "react";
 
 export default function AboutPage() {
   const [data, setData] = useState();
+  const [error, setError] = useState<{ message: string } | null> (null);
+  console.log(data);
 
   useEffect(() => {
-    (async () => {})();
+    (async () => {
+      const { data, error } = await getBlogs();
+      setData(data);
+      setError(error);
+    })();
   }, []);
 
   //* For simulating load time
