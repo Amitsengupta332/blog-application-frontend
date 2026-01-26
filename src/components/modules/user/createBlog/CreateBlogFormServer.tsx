@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/card";
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { env } from "@/env";
-import { revalidateTag } from "next/cache";
 import { Textarea } from "@/components/ui/textarea";
+import { env } from "@/env";
+import { revalidateTag, updateTag } from "next/cache";
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -19,7 +19,6 @@ import { redirect } from "next/navigation";
 const API_URL = env.API_URL;
 
 export default function CreateBlogFormServer() {
-
   const createBlog = async (formData: FormData) => {
     "use server";
 
@@ -52,14 +51,15 @@ export default function CreateBlogFormServer() {
       // updateTag("blogPosts"); // Use either one of them
     }
   };
+
   return (
     <Card className="max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle>create Blog</CardTitle>
-        <CardDescription>you can right your blog</CardDescription>
+        <CardTitle>Create Blog</CardTitle>
+        <CardDescription>You can write your blog here</CardDescription>
       </CardHeader>
       <CardContent>
-           <form id="blog-form" action={createBlog}>
+        <form id="blog-form" action={createBlog}>
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="title">Title</FieldLabel>
